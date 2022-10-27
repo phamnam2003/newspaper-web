@@ -1,0 +1,163 @@
+<div class="container-body">
+    <div class="weather-today">
+        <div class="today-body">
+            <div class="text-today">Bảng tin của bạn</div>
+            <div class="time-today"></div>
+        </div>
+
+        <div class="weather-body">
+            <div class="weather-forecast">
+                <div class="item-forecast">
+                    <div class="date-forecast"></div>
+                    <div class="icon-weather-forecast">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="temperature-forecast">25°C</div>
+                </div>
+
+                <div class="item-forecast">
+                    <div class="date-forecast"></div>
+                    <div class="icon-weather-forecast">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="temperature-forecast">25°C</div>
+                </div>
+
+                <div class="item-forecast">
+                    <div class="date-forecast"></div>
+                    <div class="icon-weather-forecast">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="temperature-forecast">25°C</div>
+                </div>
+
+                <div class="item-forecast">
+                    <div class="date-forecast"></div>
+                    <div class="icon-weather-forecast">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+                    <div class="temperature-forecast">25°C</div>
+                </div>
+            </div>
+            
+            <div class="weather-now">
+                <div class="arrow-see-forecast">
+                    <i class="fa-solid fa-less-than"></i>
+                </div>
+
+                <div class="content-weather">
+                    <div class="icons-weather-content">
+                        <i class="fa-solid fa-circle"></i>
+                        <i class="fa-solid fa-cloud"></i>
+                    </div>
+
+                    <div class="adress-weather">
+                        <div class="adress">Hà Nội</div>
+                        <div class="temperature">25°C</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="wrapper-content">
+        {{#each news}}
+
+        <div class="content-newspaper">
+            <div class="content-newspaper-left">
+                <div class="img-content-avatar">
+                    <a href="/"><img src="{{this.imgavatar}}" alt=""></a>
+                </div>
+                <div class="posting-time-body">
+                    <p class="posting-time">
+                        Thời gian đăng bài: 
+                        {{{timePost this.postingtime 0 21}}}
+                    </p>
+                </div>
+                <div class="category-content-body">
+                    <p class="category-name">
+                        Loại tin tức: 
+                        <a href="/">{{{kindOfNews this.category}}}</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="content-newspaper-right">
+                <div class="title-content-body">
+                    <a href="/">{{this.title}}</a>
+                </div>
+                <div class="desc-content-body">
+                    {{subString this.description 0 130}}
+                </div>
+                <div class="part-of-content">
+                    {{{subString this.content 0 150}}}
+                </div>
+                <div class="see-details">
+                    <a href="/">
+                        <div class="text-see-details">
+                            Xem chi tiết
+                        </div>
+                        <div class="icon-see-details">
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        {{else}}
+            <div class="error-emty-info">
+                Không có bài viết nào
+            </div>
+        {{/each}}
+    </div>
+</div>
+
+<script>
+    var time = '';
+    var date = new Date();
+    const timeToday = document.querySelector('.time-today');
+    const dayWeatherForecast = document.querySelectorAll('.date-forecast');
+    const days = ['Chủ nhật', 'Thứ hai', 'Thứ 3', 'Thứ 4', 'Thứ 5', 'Thứ 6', 'Thứ 7'];
+    const months = ['Tháng 1', 'Tháng 2', 'Tháng 3', 'Tháng 4', 'Tháng 5', 'Tháng 6', 'Tháng 7',
+        'Tháng 8', 'Tháng 9', 'Tháng 10', 'Tháng 11', 'Tháng 12'];
+    const daysEng = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+    const arrowSeeForecast = document.querySelector('.arrow-see-forecast');
+    const iconArrow = document.querySelector('.fa-less-than');
+    const weatherForecast = document.querySelector('.weather-forecast');
+    
+    // Get Day and Month render UI
+    var day = days[date.getDay()];
+    var month = months[date.getMonth()];
+    time = `${day}, ${month} ${date.getDate()}`;
+    timeToday.innerText = time;
+
+    // GET 3 char the first of Day Weather-Forecast by English
+    function setDayWeatherForecast() {
+        if (weatherForecast.classList.contains('active')) {
+            dayWeatherForecast[0].innerText = 'Today';
+            for(var i = 1; i <= dayWeatherForecast.length; i++) {
+                dayWeatherForecast[i].innerText = daysEng[date.getDay() + i];
+            }
+        }
+    }
+
+    // Clicked arrow see weather-forecast
+    arrowSeeForecast.onclick = function () {
+        weatherForecast.classList.toggle('active');
+
+        // change icon arrow
+        if ( weatherForecast.classList.contains('active')) {
+            iconArrow.classList.replace('fa-less-than', 'fa-greater-than');
+        }
+        else {
+            iconArrow.classList.replace('fa-greater-than', 'fa-less-than');
+        }
+        setDayWeatherForecast();
+    }
+
+</script>

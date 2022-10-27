@@ -1,0 +1,50 @@
+<header id="header-container">
+    <div class="header--logo">
+        <a href="/">
+            <img src="/img/logo-header.png" alt="Logo trang web" class="logo-header">
+        </a>
+    </div>
+    <nav class="nav--content">
+        <ul class="list-item-header">
+            <li class="items__nav"><a href="#">Chính Trị</a></li>
+            <li class="items__nav"><a href="#">Thể Thao</a></li>
+            <li class="items__nav"><a href="#">Quân Sự</a></li>
+            <li class="items__nav"><a href="#">Giáo Dục</a></li>
+            <li class="items__nav"><a href="#">Y Tế</a></li>
+            <li class="items__nav"><a href="#">Môi trường</a></li>
+        </ul>
+    </nav>
+    <div class="search-header">
+        <form action="" method="GET" class="form-search">
+            <input type="text" name="q" class="input-search-header" placeholder="Tìm kiếm tin tức">
+            <div class="icon-search-header">
+                <i class="bi bi-search"></i>
+            </div>
+        </form>
+    </div>
+</header>
+
+<script>
+    const searchIcon = document.querySelector('.icon-search-header');
+    const searchInput = document.querySelector('.input-search-header');
+    const documentHeader = document.querySelector('#header-container');
+
+    // when click icon search then icon search disappear and input appear
+    searchIcon.onclick = function (e) {
+        // ngan chan hanh vi noi bots
+        e.stopPropagation();
+        searchInput.classList.add('active');
+        this.style.display = "none";
+    }
+
+    // when click any where in header then input disappear and search icon appear
+    documentHeader.onclick = function () {
+        searchIcon.style.display = "block";
+        searchInput.classList.remove('active');
+    }
+
+    searchInput.onclick = function (e) {
+        e.stopPropagation();
+    }
+    
+</script>
