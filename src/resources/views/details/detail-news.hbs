@@ -1,0 +1,31 @@
+<div class="wrapper-detail">
+    <div class="title-detail">
+        {{info.title}}
+    </div>
+
+    <div class="posting-time-detail">
+        <p class="text-posting-time-detail">Thời gian đăng bài: </p>
+        <div class="posting-time">{{timePost info.postingtime}}</div>
+    </div>
+
+    <div class="category-detail">
+        <p class="text-category">Lĩnh vực tin tức: </p>
+        <a href="/{{info.category}}" class="kind-of-news-detail">{{kindOfNews info.category}}</a>
+    </div>
+    
+    <div class="desc-detail">
+        {{info.description}}
+    </div>
+
+    <div class="img-content-detail">
+        <img src="{{info.imgavatar}}" alt="">
+    </div>
+
+    <div class="content-detail">
+        {{info.content}}
+    </div>
+
+    <div class="img-desc-detail">
+        <img src="{{info.imgdesc}}" alt="">
+    </div>
+</div>

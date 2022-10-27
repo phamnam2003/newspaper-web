@@ -70,7 +70,7 @@
         <div class="content-newspaper">
             <div class="content-newspaper-left">
                 <div class="img-content-avatar">
-                    <a href="/"><img src="{{this.imgavatar}}" alt=""></a>
+                    <a href="/{{this.category}}/{{this.slug}}"><img src="{{this.imgavatar}}" alt=""></a>
                 </div>
                 <div class="posting-time-body">
                     <p class="posting-time">
@@ -81,14 +81,14 @@
                 <div class="category-content-body">
                     <p class="category-name">
                         Loại tin tức: 
-                        <a href="/" class="kind-of-news">{{{kindOfNews this.category}}}</a>
+                        <a href="/{{this.category}}" class="kind-of-news">{{{kindOfNews this.category}}}</a>
                     </p>
                 </div>
             </div>
 
             <div class="content-newspaper-right">
                 <div class="title-content-body">
-                    <a href="/">{{this.title}}</a>
+                    <a href="/{{this.category}}/{{this.slug}}">{{this.title}}</a>
                 </div>
                 <div class="desc-content-body">
                     {{subString this.description 0 130}}
@@ -97,7 +97,7 @@
                     {{{subString this.content 0 150}}}
                 </div>
                 <div class="see-details">
-                    <a href="/">
+                    <a href="/{{this.category}}/{{this.slug}}">
                         <div class="text-see-details">
                             Xem chi tiết
                         </div>
@@ -129,14 +129,13 @@
     const arrowSeeForecast = document.querySelector('.arrow-see-forecast');
     const iconArrow = document.querySelector('.fa-less-than');
     const weatherForecast = document.querySelector('.weather-forecast');
+    const textToday = document.querySelector('.text-today');
 
     // Get Day and Month render UI
     var day = days[date.getDay()];
     var month = months[date.getMonth()];
     time = `${day}, ${month} ${date.getDate()}`;
     timeToday.innerText = time;
-
-    console.log(date.getDay(),date.getDay() + dayWeatherForecast.length, daysEng.length);
 
     // GET 3 char the first of Day Weather-Forecast by English
     function setDayWeatherForecast() {
@@ -163,7 +162,27 @@
             iconArrow.classList.replace('fa-greater-than', 'fa-less-than');
         }
         setDayWeatherForecast();
-
     }
 
+    if (window.location.href.toString().substring(22) == '') {
+        textToday.innerText = 'Bảng tin của bạn';
+    }
+    else if (window.location.href.toString().substring(22) == 'medical') {
+        textToday.innerText = 'Y tế';
+    }
+    else if (window.location.href.toString().substring(22) == 'enviroment') {
+        textToday.innerText = 'Môi trường';
+    }
+    else if (window.location.href.toString().substring(22) == 'military') {
+        textToday.innerText = 'Quân sự';
+    }
+    else if (window.location.href.toString().substring(22) == 'education') {
+        textToday.innerText = 'Giáo dục';
+    }
+    else if (window.location.href.toString().substring(22) == 'sports') {
+        textToday.innerText = 'Thể thao';
+    }
+    else {
+        textToday.innerText = 'Chính trị';
+    }
 </script>

@@ -22,6 +22,20 @@ class SiteController {
             .catch(next)
     }
 
+    details (req, res, next) {
+        Newspaper.findOne({ where: { slug: req.params.slug } })
+            .then(info => {
+                res.render('details/detail-news', {
+                    info
+                })
+            })
+            .catch(next)
+    }
+
+    search (req, res, next) {
+        let { term } = req.query;
+    }
+
     add (req, res, next) {
         
             let {title, description, content, category, imgavatar, imgdesc} = data

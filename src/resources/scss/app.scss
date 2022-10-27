@@ -18,6 +18,7 @@
 
 // Header
 #header-container {
+    width: 100%;
     font-weight: 500;
     font-family: monospace, sans-serif;
     display: flex;
@@ -114,7 +115,6 @@ a {
 
 // Body
 .content {
-    // width: 100%;
     min-height: 40vh;
     background-color: #f6f8fc;
     padding: 32px 150px;
@@ -250,7 +250,7 @@ a {
     font-weight: 500;
 }
 
-    // Database --> UI Body
+    // Database --> UI Body (Home Page)
 .wrapper-content {
     margin-top: 32px;
     background-color: $background;
@@ -356,6 +356,64 @@ a {
 .content-newspaper-right .see-details .text-see-details {
     margin-right: 12px;
 }
+
+    // Details Page
+.wrapper-detail {
+    background-color: #ffffff;
+    padding: 32px 30px;
+    border-radius: 30px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    margin: 30px 0;
+    font-size: 1.15rem;
+    line-height: 1.6;
+}
+
+.wrapper-detail .title-detail {
+    font-size: 1.8rem;
+    color: $text-color-body;
+    margin-bottom: 20px;
+    font-family: 'Noto Serif', serif;
+}
+
+.wrapper-detail .desc-detail {
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.wrapper-detail .posting-time-detail,
+.wrapper-detail .category-detail {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.wrapper-detail .posting-time-detail p, 
+.wrapper-detail .category-detail p {
+    margin-right: 16px;
+} 
+
+.wrapper-detail .img-content-detail,
+.wrapper-detail .img-desc-detail {
+    text-align: center;
+}
+
+.wrapper-detail .img-content-detail img,
+.wrapper-detail .img-desc-detail img {
+    border-radius: 25px;
+    width: 70%;
+}
+
+.wrapper-detail .content-detail::first-letter {
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+.wrapper-detail .content-detail {
+    margin-bottom: 20px;
+    padding: 0 60px;
+    text-align: justify;
+}
+
 
 //Footer
 #footer-container {
