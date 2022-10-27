@@ -3,7 +3,7 @@ const Newspaper = require('../models/Newspaper');
 
 class SiteController {
     home (req, res, next) {
-        Newspaper.findAll({ order: Sequelize.literal('rand()'), limit: 5 })
+        Newspaper.findAll({})
             .then(news => {
                 res.render('home', {
                     news
