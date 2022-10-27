@@ -80,7 +80,7 @@ app.engine('hbs', handlebars.engine({
             else if (category == 'enviroment') {
                 kind = 'Môi trường';
             }
-            else {
+            else if (category == 'education') {
                 kind = 'Giáo dục';
             }
             return kind;

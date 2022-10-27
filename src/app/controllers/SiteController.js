@@ -12,6 +12,16 @@ class SiteController {
             .catch(next)
     }
 
+    category (req, res, next) {
+        Newspaper.findAll({ where: {category: req.params.category} })
+            .then(news => {
+                res.render('home', {
+                    news
+                })
+            })
+            .catch(next)
+    }
+
     add (req, res, next) {
         
             let {title, description, content, category, imgavatar, imgdesc} = data

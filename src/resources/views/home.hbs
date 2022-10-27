@@ -81,7 +81,7 @@
                 <div class="category-content-body">
                     <p class="category-name">
                         Loại tin tức: 
-                        <a href="/">{{{kindOfNews this.category}}}</a>
+                        <a href="/" class="kind-of-news">{{{kindOfNews this.category}}}</a>
                     </p>
                 </div>
             </div>
@@ -129,19 +129,24 @@
     const arrowSeeForecast = document.querySelector('.arrow-see-forecast');
     const iconArrow = document.querySelector('.fa-less-than');
     const weatherForecast = document.querySelector('.weather-forecast');
-    
+
     // Get Day and Month render UI
     var day = days[date.getDay()];
     var month = months[date.getMonth()];
     time = `${day}, ${month} ${date.getDate()}`;
     timeToday.innerText = time;
 
+    console.log(date.getDay(),date.getDay() + dayWeatherForecast.length, daysEng.length);
+
     // GET 3 char the first of Day Weather-Forecast by English
     function setDayWeatherForecast() {
         if (weatherForecast.classList.contains('active')) {
             dayWeatherForecast[0].innerText = 'Today';
-            for(var i = 1; i <= dayWeatherForecast.length; i++) {
+            for(let i = 1; i < dayWeatherForecast.length; i++) {
                 dayWeatherForecast[i].innerText = daysEng[date.getDay() + i];
+                if ((date.getDay() + i) >= daysEng.length) {
+                    dayWeatherForecast[i].innerText = daysEng[date.getDay() + i - daysEng.length];
+                }
             }
         }
     }
@@ -158,6 +163,7 @@
             iconArrow.classList.replace('fa-greater-than', 'fa-less-than');
         }
         setDayWeatherForecast();
+
     }
 
 </script>
