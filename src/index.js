@@ -51,7 +51,7 @@ app.engine('hbs', handlebars.engine({
             // month
             for (let i = 0; i< monthEng.length; i++) {
                 if (month == monthEng[i]) {
-                    month = `tháng ${i}`;
+                    month = `tháng ${i + 1}`;
                     break;
                 }
             }
