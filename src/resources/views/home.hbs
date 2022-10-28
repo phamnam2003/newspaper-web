@@ -182,7 +182,10 @@
     else if (window.location.href.toString().substring(22) == 'sports') {
         textToday.innerText = 'Thể thao';
     }
-    else {
+    else if (window.location.href.toString().substring(22) == 'politics') {
         textToday.innerText = 'Chính trị';
+    }
+    else if (window.location.href.toString().substring(22, 28) == 'search') {
+        textToday.innerText = 'Kết quả tìm kiếm'
     }
 </script>

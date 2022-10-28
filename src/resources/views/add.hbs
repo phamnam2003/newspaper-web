@@ -1,0 +1,35 @@
+<div class="wrapper-content text-center">
+    <div class="title">Thêm tin tức</div>
+    {{#each errors}}
+        <div class="error">
+            <p class="text-error">{{this.text}}</p>
+        </div>
+    {{/each}}
+    <form action="/add/postnews" method="POST" class="add-news-form">
+        <div class="add-news">
+            <div class="text-title-add">Tiêu đề</div>
+            <input type="text" name = "title" placeholder="Tiêu đề tin tức" value="{{title}}" class = "input-add-news">
+        </div>
+        <div class="add-news">
+            <div class="text-title-add">Mô tả</div>
+            <input type="text" name = "description" placeholder="Mô tả tin tức" value="{{description}}" class = "input-add-news">
+        </div>
+        <div class="add-news">
+            <div class="text-title-add">Nội dung</div>
+            <textarea type="text" name = "content" placeholder="Nội dung bài đăng" class = "input-add-news">{{content}}</textarea>
+        </div>
+        <div class="add-news">
+            <div class="text-title-add">Lĩnh vực</div>
+            <input type="text" name = "category" placeholder="Lĩnh vực tin tức" value="{{category}}" class = "input-add-news">
+        </div>
+        <div class="add-news">
+            <div class="text-title-add">Ảnh chính</div>
+            <input type="text" name = "imgavatar" value="{{imgavatar}}" placeholder="Đường dẫn ảnh chính của tin tức" class = "input-add-news">
+        </div>
+        <div class="add-news">
+            <div class="text-title-add">Ảnh phụ</div>
+            <input type="text" name = "imgdesc" placeholder="Đường dẫn ảnh phụ của tin tức" value="{{imgdesc}}" class = "input-add-news">
+        </div>
+        <button type="submit" class="submit-add-news">Thêm tin tức ngay</button>
+    </form>
+</div>

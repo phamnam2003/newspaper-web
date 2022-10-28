@@ -1,4 +1,5 @@
 const Sequelize  = require('sequelize');
+const Op = Sequelize.Op;
 const Newspaper = require('../models/Newspaper');
 
 class SiteController {
@@ -32,20 +33,23 @@ class SiteController {
             .catch(next)
     }
 
+    
     search (req, res, next) {
         let { term } = req.query;
-    }
-
-    add (req, res, next) {
-        
-            let {title, description, content, category, imgavatar, imgdesc} = data
-        
-            // Insert into database
-            Newspaper.create({
-                title, description, content, category, imgavatar, imgdesc
-            })  
-                .then(newspaper => res.redirect('/'))
-                .catch(err => console.log(err))
+        Newspaper.findAll({
+            where: {
+             [Op.or]: [
+               { title: { [Op.like]: `%${term}%` } },
+               { description: { [Op.like]: `%${term}%` } }
+             ]
+           }
+           })
+            .then(news => {
+                res.render('home', {
+                    news
+                })
+            })
+            .catch(next)
     }
 }
 
