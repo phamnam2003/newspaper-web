@@ -455,7 +455,7 @@ a {
 
 .add-news-form .submit-add-news {
     width: fit-content;
-    background-color: #f6f8fc;
+    background-color: rgba(60, 64, 67, 0.15);
     color: $text-color-body;
     padding: 16px 12px;
     margin-top: 30px;
@@ -468,6 +468,24 @@ a {
     background-color: $color-hover;
     color: $text-color;
     cursor: pointer;
+}
+
+.wrapper-content .error {
+    display: flex;
+    justify-content: center;
+}
+
+.error .text-error {
+    margin-top: 10px;
+    font-size: 1.15rem;
+    width: calc(100% - 700px);
+    padding: 20px 40px;
+    color: $text-color-body;
+    border: 1px solid $text-color-body;
+}
+
+textarea {
+    resize: vertical;
 }
 
 //Footer
