@@ -36,11 +36,18 @@ class SiteController {
     
     search (req, res, next) {
         let { term } = req.query;
+        let termLowerCase = term.toLowerCase();
+        let termFirstUpperCase = term.charAt(0).toUpperCase() + term.slice(1).toLowerCase();
+
         Newspaper.findAll({
             where: {
              [Op.or]: [
                { title: { [Op.like]: `%${term}%` } },
-               { description: { [Op.like]: `%${term}%` } }
+               { description: { [Op.like]: `%${term}%` } },
+               { title: { [Op.like]: `%${termLowerCase}%` } },
+               { title: { [Op.like]: `%${termFirstUpperCase}%` } },
+               { description: { [Op.like]: `%${termLowerCase}%` } },
+               { description: { [Op.like]: `%${termFirstUpperCase}%` } },
              ]
            }
            })
