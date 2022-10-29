@@ -4,7 +4,7 @@ const Newspaper = require('../models/Newspaper');
 
 class SiteController {
     home (req, res, next) {
-        Newspaper.findAll({})
+        Newspaper.findAll({ order: [ [ Sequelize.fn('RANDOM') ] ] })
             .then(news => {
                 res.render('home', {
                     news
