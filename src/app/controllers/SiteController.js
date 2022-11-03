@@ -43,9 +43,9 @@ class SiteController {
             where: {
              [Op.or]: [
                { title: { [Op.like]: `%${term}%` } },
-               { description: { [Op.like]: `%${term}%` } },
                { title: { [Op.like]: `%${termLowerCase}%` } },
                { title: { [Op.like]: `%${termFirstUpperCase}%` } },
+               { description: { [Op.like]: `%${term}%` } },
                { description: { [Op.like]: `%${termLowerCase}%` } },
                { description: { [Op.like]: `%${termFirstUpperCase}%` } },
              ]
