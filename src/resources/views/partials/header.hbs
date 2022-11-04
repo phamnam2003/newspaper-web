@@ -28,10 +28,11 @@
     const searchIcon = document.querySelector('.icon-search-header');
     const searchInput = document.querySelector('.input-search-header');
     const documentHeader = document.querySelector('#header-container');
+    const listItemHeader = document.querySelector('.nav--content');
 
     // when click icon search then icon search disappear and input appear
     searchIcon.onclick = function (e) {
-        // ngan chan hanh vi noi bots
+        // ngan chan hanh vi noi bot
         e.stopPropagation();
         searchInput.classList.add('active');
         this.style.display = "none";
@@ -45,6 +46,21 @@
 
     searchInput.onclick = function (e) {
         e.stopPropagation();
+    }
+
+    if (window.innerWidth <= 740) {
+        searchIcon.onclick = function (e) {
+            // ngan chan hanh vi noi bot
+            e.stopPropagation();
+            searchInput.classList.add('active');
+            this.style.display = "none";
+            listItemHeader.style.display = "none";
+        };
+         documentHeader.onclick = function () {
+            searchIcon.style.display = "block";
+            searchInput.classList.remove('active');
+            listItemHeader.style.display = "inline-block";
+        }
     }
     
 </script>

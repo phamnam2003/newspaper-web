@@ -79,6 +79,7 @@ a {
 
 .icon-search-header {
   position: absolute;
+  font-size: 1.15rem;
   left: 90%;
   padding: 8px;
   animation: appear 0.7s ease-in forwards;
@@ -100,7 +101,6 @@ a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: system-ui, sans-serif;
   background-color: transparent; }
 
 .weather-today .today-body .text-today {
@@ -198,7 +198,8 @@ a {
 
 .weather-now .adress-weather .adress {
   font-size: 0.85rem;
-  opacity: 0.6; }
+  opacity: 0.6;
+  text-align: center; }
 
 .weather-now .adress-weather .temperature {
   font-size: 2rem;
@@ -503,7 +504,7 @@ form.request-form {
   color: #fff;
   background-color: #08a508; }
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .nav--content .list-item-header .items__nav {
     display: inline-block;
     padding: 0 8px; }
@@ -535,3 +536,33 @@ form.request-form {
     width: 350px; }
   .footer-item .text-head {
     font-size: 1.1rem; } }
+
+@media (max-width: 740px) {
+  #header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px; }
+  #header-container .nav--content .list-item-header {
+    display: inline-block; }
+  .nav--content .list-item-header .items__nav a {
+    font-size: 0.875rem; }
+  .icon-search-header {
+    position: absolute;
+    left: 93%;
+    padding: 8px;
+    font-size: 20px; }
+  .form-search .input-search-header {
+    left: 25%;
+    font-size: 0.875rem;
+    width: 400px; }
+  .content {
+    padding: 20px 50px; }
+  .weather-today .today-body .text-today {
+    font-size: 1.2rem; }
+  .weather-today .today-body .time-today {
+    font-size: 0.875rem; }
+  .weather-today .weather-body {
+    height: 90px; }
+  .wrapper-content {
+    margin-top: 20px; } }
